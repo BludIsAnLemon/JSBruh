@@ -74,7 +74,7 @@ function Bruhify(code) {
   
   hellCode = `if(true && !false || !!true) { ${hellCode} }`;
   
-  return `new Function('${hellCode}')()`;
+  return hellCode;
 }
 
 function copyText(text) {
