@@ -29,7 +29,7 @@ encodeBtn.addEventListener('click', function() {
 })
 
 executeBtn.addEventListener('click', function() {
-  new Function(output.textContent)()
+  eval(output.textContent)
 })
 
 function addStatement(code) {
@@ -72,7 +72,9 @@ function Bruhify(code) {
     hellCode = addUselessComments(hellCode);
   }
   
-  return `if(true && !false || !!true) { ${hellCode} }`;
+  hellCode = `if(true && !false || !!true) { ${hellCode} }`;
+  
+  return `new Function('${hellCode}')()`;
 }
 
 function copyText(text) {
