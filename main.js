@@ -33,40 +33,49 @@ executeBtn.addEventListener('click', function() {
 })
 
 function addStatement(code) {
-  return `if(true && !false || !!true) {
-            ${code}
+  return `if(true && !false || !!true) { \n
+            ${code} \n
           }`;
 }
 
 function addUselessLoop(code) {
-  return `for(let i = 0; i < 1; i++) {
-            ${code}
+  return `for(let i = 0; i < 1; i++) { \n
+            ${code} \n
           }`
+}
+
+function wrapInIIFE(code) {
+  return `(() => { \n  ${code} \n })()`
+}
+
+function addUselessComments(code) {
+  return `// ${Math.random() * Math.random()} \n ${code}`
 }
 
 function Bruhify(code) {
   let result = JScrewIt.encode(code);
-  for(let i = 0; i < 9; i++) {
+  for(let i = 0; i < 2; i++) {
     result = JScrewIt.encode(result);
   }
   let hellCode = addStatement(result);
   
-  for(let i = 0; i < 10; i++) {
+  for(let i = 0; i < 4; i++) {
     hellCode = addStatement(hellCode);
     hellCode = addUselessLoop(hellCode);
   }
   
   hellCode = JScrewIt.encode(hellCode);
   hellCode = JScrewIt.encode(hellCode);
-  hellCode = JScrewIt.encode(hellCode);
   
-  for(let i = 0; i < 10; i++) {
+  for(let i = 0; i < 5; i++) {
     hellCode = addStatement(hellCode);
     hellCode = addUselessLoop(hellCode);
+    hellCode = wrapInIIFE(hellCode);
+    hellCode = addUselessComments(hellCode);
   }
   
-  return `if(true && !false || !!true) {
-            ${hellCode}
+  return `if(true && !false || !!true) { \n
+            ${hellCode}\n
           }`;
 }
 
