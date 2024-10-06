@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSBruh</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="src/icon.png" type="image/x-icon" />
+</head>
+<body>
+  <h1 id="title"><img src="src/icon.png">JSBruh</h1>
+  <input type="text" placeholder="alert(1)" id="codeToBeEncoded">
+  <button id="encodeBtn">Obfuscate</button>
+  <h2>Output</h2>
+  <div id="output"></div>
+  <button id="executeBtn">Execute</button>
+  <button id="copyCode" onclick="copyText((document.getElementById('output')).textContent);">Copy Code</button>
+  <script src="https://cdn.jsdelivr.net/npm/jscrewit"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/javascript-obfuscator/2.22.1/javascript-obfuscator.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
